@@ -32,6 +32,7 @@ function findItemInCart(itemToFind){
 
 //-------------------------------------------ADD ITEM TO CART------------------------------------------- */
 exports.addItemInCart = (searchTerm) => {
+    let count = 0;
     let itemtoAdd = parseInt(searchTerm);
     //console.log(itemtoAdd);
 
@@ -47,6 +48,7 @@ exports.addItemInCart = (searchTerm) => {
             status : 'SUCCESS', message : "Valid ID. Item found in Products. "
         }
         console.log(alertMessage);
+        count += 1;
 
     /* NOT ADD THE SAME PRODUCT TO CART CHECK */     
     const checkInCartItem = findItemInCart(itemtoAdd);//find item in cart
@@ -62,7 +64,9 @@ exports.addItemInCart = (searchTerm) => {
             status : 'SUCCESS', message : "Item added in the Cart"};
             console.log(alertMessage);
         }
-    }    
+    }   
+    
+    return alertMessage;
 }
  
 //-------------------------------------------DELETE ITEM FROM CART------------------------------------------- */

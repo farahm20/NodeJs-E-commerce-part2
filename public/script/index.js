@@ -10,6 +10,7 @@ async function getAllProducts() {
    
     return data;
 }
+
 async function getAllCart () {
     cartItems = await getCartItems();
     console.log(cartItems);
@@ -21,13 +22,15 @@ getAllCart();
 function displayProducts(Products) {
     console.log(Products);
     console.log(cartItems);
-
+    
  //   const cartItems = await getCartItems();
 //    console.log(cartItems);
 
 //    const image = Products;
     const containerElem = document.querySelector('.allproducts');
     containerElem.innerHTML = '';
+    let cartItemsCount = 0;
+    let checkProductID = 0;
 
     for(let product of Products){
         
@@ -68,11 +71,27 @@ function displayProducts(Products) {
          * compare product id with already items in cart carts is. 
          * remove event listener if product alredy in cart an eventlistener on button
          */
-        let theId;
+    
+        cartItemsCount += 1;
         addToCartButton.addEventListener("click", () => {
-            theId = addItemToCart(product.id);
-            console.log(theId);
+            console.log("adding click to addtocartbutton");
+            addItemToCart(product.id);
+            addToCartButton.innerHTML = "ITEM IN CART";
+        //    addToCartButton.disabled = true;
         });
+
+        for (let i = 0; i < cartItems.length ; i ++){
+            checkProductID = parseInt(cartItems[i].id);
+            console.log("comparing", checkProductID);
+            console.log("with : ", product.id);
+            if(checkProductID === product.id){
+                console.log("item already in cart");
+                addToCartButton.innerHTML = "ITEM ALREADY IN CART";
+                addToCartButton.disabled = true;
+            }
+        }
+
+       
     }
 }
 
@@ -81,41 +100,11 @@ document.querySelector('#getProducts').addEventListener('click', async() => {
     displayProducts(Products);
 });
 
-/*
+
 async function addItemToCart(prodId){
     console.log(prodId);
-    let obj = { id: prodId};
-    let url = "http://localhost:8000/TechShop/add";
-    const response = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json;charset=utf-8" },
-        body: JSON.stringify(obj)
-      });
-    const data = await response.json();
-    console.log(data);
+    let url = `http://localhost:8000/TechShop/add/?id=${prodId}`;
+    let response = await fetch(url, { method: 'POST' });
+    let data = await response.json();
     return data;
 }
-*/
-
-/*
-let cartItems;
-async function getAllProducts() {
-    const url = 'http://localhost:8000/TechShop/getproducts';
-
-    const response = await fetch(url);
-    const data = await response.json();
-   
-    return data;
-}
-async function getAllCart () {
-    cartItems = await getCartItems();
-    console.log(cartItems);
-}
-
-getAllCart();*/
-
-/**
- * Get the button for add to cart
- * when button clicked link to URL
- * check if item is not already in cart
- */

@@ -12,18 +12,28 @@ module.exports = (app) => {
         const searchTerm = req.query.id;
         //console.log(req.url);
         //console.log(searchTerm);
-        res.send('In add item to cart endpoint....');
-        db.addItemInCart(searchTerm);
+    //    res.send('In add item to cart endpoint....');
+        let obj = db.addItemInCart(searchTerm);
+  /*      let obj = {
+            message: 'Adding item in cart....'        
+         }*/
+         res.send(JSON.stringify(obj));
+         return obj;
     })
 
     //-------------------------------------------DELETE: remove a specific product ------------------------------------------- */
     //http://localhost:8000/TechShop/removeItem/?id=1
     app.delete('/TechShop/removeItem', (req, res) => {
         const itemToDelete = req.query.id;
-        //console.log(req.url);
-        //console.log(itemToDelete);
-        res.send('At item to delete from cart endpoint....');
+        console.log(req.url);
+        console.log(itemToDelete);
+    //    res.send('At item to delete from cart endpoint....');
         db.deleteItemFromCart(itemToDelete);
+        let obj = {
+            message: 'Removing item from cart....'
+         }
+         res.send(JSON.stringify(obj));
+         console.log(obj);
     })
 
     //-------------------------------------------DELETE: delete teh whole cart ------------------------------------------- */

@@ -59,10 +59,11 @@ function displayCartItems(cartItems) {
         containerElem.appendChild(itemCard);
         
         removeFromCartButton.addEventListener('click', async() => {
-            console.log("in the remove from cart button")
-            let id = parseInt(itemCardId);
-           let value = removeCartItem(id);
-           console.log(value);
+        //    console.log("in the remove from cart button")
+        //    console.log("Item id: ", itemCardId);
+        //    let id = parseInt(itemCardId);
+           let value = removeCartItem(itemCardId);
+        //   console.log("retruned from removeCartItem ",value);
            itemCard.remove(); 
             //can i call the function here 
         });
@@ -71,9 +72,14 @@ function displayCartItems(cartItems) {
 
 
 async function removeCartItem (itemCardId) {
-    let obj = { id: itemCardId  };
-    let url = "http://localhost:8000/TechShop/removeItem";
+ //   console.log( "In the remove cart item " ,itemCardId);
+ try{
+    let url = `http://localhost:8000/TechShop/removeItem/?id=${itemCardId}`;
     let response = await fetch(url, { method: 'DELETE' });
     let data = await response.json();
-    return data; 
+    return data;
+ }catch (error){
+     console.log("Error");
+ }
+
 };
