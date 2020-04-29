@@ -1,0 +1,305 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background: rgb(170, 162, 162);
+}
+
+.wrapper {
+    max-width: 1000px;
+    background-color: white;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-auto-rows: auto;
+    grid-template-areas:
+                         "nav"          /*nav - used in all pages*/
+                         "main"
+                         "products"       /*slider - used in *projects.html* */
+                         "cart"
+                         "footer";       /*footer used in all pages*/
+}
+
+
+.menu{
+    grid-area: nav;
+    display: flex;
+    background-color: white;
+    height: 3rem;
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu a{
+    margin: 0 1rem;
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    font-family: monospace;
+    font-weight: 600;
+}
+
+.logoImage {
+    display: flex;
+    flex-direction: row;
+   
+    width: 35px;
+    height: 35px;
+    border-radius: 15%;
+    overflow: hidden;
+    margin-top: 0px;
+}
+
+.logoImage h1 {
+    font-size: 40px;
+    color: black;
+}
+
+.logoImage img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+.main {
+    grid-area: main;
+    background: url(../Images/backGround6.jpg) no-repeat;
+    background-size: contain;
+    background-position: center center;
+    /* background-attachment: fixed; */
+    /* object-fit: cover; */
+    height: 500px;
+    width: 100%;
+}
+
+.main, .cartMain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main , .cartMain h1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 26px;
+    color: #1c120e;
+}
+
+.mainHeading{
+    margin: 0px 100px 0px 100px;
+}
+.cartMain p {
+    margin: 70px 100px 70px 100px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 25px;
+    color: #1c120e;
+}
+
+.button {
+    background-color: #1c120e;
+    outline: none;
+    padding: 1.2rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 0rem;
+    transition: box-shadow 0.3s;
+    align-self: flex-end;
+    margin-right: 6rem;
+}
+
+.button:hover {
+    box-shadow: 0 8px 10px -5px rgba(31, 18, 53, 0.6);
+    background-color: rgb(63, 68, 70);
+    color: white;
+}
+
+.button:active {
+    box-shadow: none;
+}
+
+.allProductCards{
+    grid-area: products;
+    padding: 0 55px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.allproducts {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    grid-column-gap: 4rem;
+    grid-row-gap: 2rem;
+}
+
+.allCart {
+        /* display: grid; */
+    /* grid-template-columns: auto; */
+    /* grid-template-rows: auto; */
+    /* grid-column-gap: 4rem; */
+    /* grid-row-gap: 2rem; */
+    /* margin-left: 100px; */
+    display: flex;
+    justify-content: center;
+}
+
+.buyButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 155px 40px 155px;
+    color: #5b5454;
+}
+
+.itemCard {
+    width: 780px;
+    /* height: 370px; */
+    background-color: #eeeeee;
+    border: 6px solid white;
+    /* border-radius: 0px; */
+    box-shadow: 0 0 2rem rgba(0, 0, 0, .2);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.itemCard img {
+    width: 50%;
+    /* height: 100%; */
+    object-fit: conatin;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.productCard {
+    width: 250px;
+    height: 370px;
+    background-color: #eeeeee;
+    border: 6px solid white;
+    /* border-radius: 0px; */
+    box-shadow: 0 0 2rem rgba(0, 0, 0, .2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.productCard img {
+    width: 100%;
+    /* height: 100%; */
+    object-fit: contain;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.itemText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* margin: 43px; */
+    margin-top: 0px;
+    /* margin-bottom: 35px; */
+    /* margin-left: 60px; */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    margin-right: 130px;
+    color: #1c120e;
+}
+
+.prodText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    margin-top: 0px;
+    margin-bottom: 35px;
+}
+
+.checkoutButton {
+    background-color: #9E9E9E;
+    outline: none;
+    padding: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 0rem;
+    transition: box-shadow 0.3s;
+    align-self: flex-end;
+    margin-right: 6rem;
+}
+
+
+.footerMain {
+    grid-area: footer;
+    background: #1c120e;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.flinks {
+    padding: 2px;
+    min-width: 130px;
+     
+    align-self: center;
+}
+
+
+.flinks ul, a{
+    list-style-type: none;
+    color: #ebebeb;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 15px;
+    text-align: flex-start;
+    padding: 0rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+input[type = "email"]
+{
+    border: 0;
+    padding: 2px;
+    margin-top: 1px;
+}
+
+input[type = "submit"]
+{
+    background-color: #eeeeee;
+    color: black;
+    cursor: pointer;
+    /* padding: 2px 3px; */
+    margin-top: 1px;
+    border-radius: 8%;
+}
+
+
+.fsociallist {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+.fsociallist li {
+    margin: 14px;
+    font-size: 20px;
+}
