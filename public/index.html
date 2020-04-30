@@ -21,21 +21,19 @@
                 </div>
             </a>
             <div class="menuItems">
-                <a href="index.html"> Home </a>
-                <a href="cart.html"> Cart </a>
-                <a href="contact.html"> Contact </a>
-                <a href=""><i class="fas fa-shopping-cart"></i></a>
+                <a href="index.html"> HOME </a>
+                <a href="chat.html"> CHAT </a>
+                <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
             </div>
         </nav>
 
         <section class="main">
             <h1 class="mainHeading"> "Everything is designed. Few things are designed well." </h1>
-            <a class="button" id="getProducts"><span>GET PRODUCTS</span></a>
+            <a class="getProducts" id="getProduct"><span>GET PRODUCTS</span></a>
         </section>
 
         <div class="allProductCards">
             <div class="allproducts" id="products">
-                <h1>Area for all the products</h1>
             </div>
         </div>
         <!--Footer-->
@@ -44,7 +42,7 @@
                 <ul>
                     <li><a href="index.html"> Home </a></li>
                     <li><a href="cart.html"> Cart </a></li>
-                    <li><a href="Contact.html"> Contact </a></li>
+                    <li><a href="chat.html"> Contact </a></li>
                 </ul>
             </div>
             <div class="flinks">
@@ -75,7 +73,10 @@
     <!--End of wrapper---->
 
     <!--Javascript-->
+    <script src="/socket.io/socket.io.js"></script>
     <script src="script/index.js" type="module"></script>
+    <script src="script/clientChat.js" type="module"></script>
+    
 </body>
 
 </html>

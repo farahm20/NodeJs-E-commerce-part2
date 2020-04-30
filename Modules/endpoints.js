@@ -49,7 +49,8 @@ module.exports = (app) => {
 
     //------------------------------------------- GET: get all of the products ------------------------------------------- */
     //http://localhost:8000/TechShop/getProducts
-    app.get('/TechShop/getproducts', (req, res) => {
+   app.get('/TechShop/getproducts', (req, res) => {
+    
         let allProducts = db.getProducts();
         res.send(JSON.stringify(allProducts));
         

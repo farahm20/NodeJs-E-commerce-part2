@@ -18,6 +18,7 @@ body{
     grid-template-areas:
                          "nav"          /*nav - used in all pages*/
                          "main"
+                         "chat"
                          "products"       /*slider - used in *projects.html* */
                          "cart"
                          "footer";       /*footer used in all pages*/
@@ -99,13 +100,13 @@ body{
     color: #1c120e;
 }
 
-.button {
-    background-color: #1c120e;
-    outline: none;
-    padding: 1.2rem;
-    border: none;
-    border-radius: 12px;
-    font-size: 20px;
+#send, #submit{
+    background-color: #e4dcdc;
+    /* outline: none; */
+    padding: 4px 16px 4px 16px;
+    border: solid 1px;
+    border-radius: 4px;
+    font-size: 14px;
     font-weight: 700;
     cursor: pointer;
     margin-top: 0rem;
@@ -225,7 +226,7 @@ body{
     margin-bottom: 35px;
 }
 
-.checkoutButton {
+.checkoutButton, .getProducts {
     background-color: #9E9E9E;
     outline: none;
     padding: 1.2rem;
@@ -302,4 +303,126 @@ input[type = "submit"]
 .fsociallist li {
     margin: 14px;
     font-size: 20px;
+}
+/*from chat**/
+
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Margarine&display=swap');
+
+.chatSection {
+    grid-area: chat;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    margin-bottom: 10rem;
+}
+
+.chatSection h1{
+    font-family: monospace;
+    font-size: 30px;
+    margin-top: 6rem;
+}
+
+.chatSection h2{
+    font-family: monospace;
+    font-size: 25px;
+    margin-left: 100px;
+
+}
+
+input {
+    font-family: 'Margarine', cursive;
+}
+
+p {
+    font-family: 'Indie Flower', cursive;
+}
+
+
+.login {
+    display: flex;
+    flex-direction: column;
+}
+
+.login__input {
+    padding: 0rem;
+    border: 1px solid #dcdcdc;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-size: 21px;
+    margin: 6rem 6rem 2rem 6rem;
+    background: transparent;
+    outline: none;
+    color: #000000;
+    border: none;
+    /* border-bottom: 1px solid #000000; */
+    border: 1px solid;
+}
+/*
+.login__button {
+    background: transparent;
+    color: #000000;
+    border: 2px solid #000000;
+    border-radius: 50px;
+    padding: 0.8rem 1.5rem;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    transition: 0.2s ease-in-out;
+    letter-spacing: 2px;
+    font-size: 16px;
+    align-self: center;
+}*/
+
+.chat {
+    display: none;
+}
+
+.chat-area {
+    width: 80vw;
+    min-height: 10rem;
+    border: 1px solid #dcdcdc;
+    padding: 0rem 0.5rem;
+}
+
+.submit-message {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.submit-message__input {
+    padding: 0.5rem;
+    border: 1px solid #000000;
+    margin-right: 1.4rem;
+    min-height: 2rem;
+    margin: 0;
+}
+
+.submit-message__button {
+    padding: 0.5rem;
+    background: transparent;
+    color: #000000;
+    border: 2px solid #000000;
+    padding: 0.8rem 1.5rem;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    transition: 0.2s ease-in-out;
+    letter-spacing: 2px;
+    font-size: 16px;
+    align-self: flex-end;
+    margin-top: 1rem;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.typingMessage {
+    height: 20px;
 }
